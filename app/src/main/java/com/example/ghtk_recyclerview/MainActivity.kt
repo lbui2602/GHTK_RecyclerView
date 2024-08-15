@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.swipeRefreshLayout.setOnRefreshListener {
             employeeViewModel.refresh()
+            adapter.updateList(employeeViewModel.list.value!!.toList())
         }
 
         binding.rcv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
         employeeViewModel.list.observe(this, Observer { list ->
             list?.let {
-                adapter.updateList(it)
+                adapter.add(it)
                 isLoading = false
                 binding.swipeRefreshLayout.isRefreshing = false
             }

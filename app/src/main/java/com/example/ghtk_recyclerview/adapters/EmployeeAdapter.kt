@@ -83,4 +83,9 @@ class EmployeeAdapter(private var list: MutableList<Employee>) : RecyclerView.Ad
         list.addAll(newList)
         notifyDataSetChanged()
     }
+
+    fun add(it: List<Employee>) {
+        list.addAll(it)
+        notifyDataSetChanged()
+    }
 }

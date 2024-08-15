@@ -34,7 +34,7 @@ class EmployeeViewModel : ViewModel() {
     }
     fun loadMore(currentSize: Int, nextSize: Int) {
         val departments = listOf("Nhân sự", "Marketing", "IT")
-        val currentList = _list.value?.toMutableList() ?: mutableListOf()
+        val currentList = mutableListOf<Employee>()
         for (i in currentSize until currentSize + nextSize) {
             val mnv = "ABC$i"
             val name = "Bùi Đức Lương $i"
